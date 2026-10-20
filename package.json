@@ -1,0 +1,30 @@
+{
+  "name": "firstgherkin",
+  "version": "1.0.0",
+  "description": "TASK  Write 8 scenarios (Test cases) in the Gherkin syntax using \"Practice software testing\" site. Each scenario must contain at least 4 steps. The required Keywords for each scenario must be: Scenario: ...... Given ...... When ...... Then.......  Review application - https://practicesoftwaretesting.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maariami/firstgherkin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maariami/firstgherkin/issues"
+  },
+  "homepage": "https://github.com/Maariami/firstgherkin#readme",
+  "devDependencies": {
+    "@wdio/cli": "^10.1.0",
+    "@wdio/local-runner": "^10.1.0",
+    "@wdio/mocha-framework": "^10.1.0",
+    "@wdio/spec-reporter": "^10.1.0",
+    "chai": "^6.3.0"
+    
+  }
+
+  
+}
