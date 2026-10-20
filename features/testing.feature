@@ -43,7 +43,7 @@ Feature: Profile page Features
     Then user should see the "Your profile is successfully updated!" message
     And the first name should be "Nini"
 
-Feature: Products page Features
+Feature: Product Listing Page
 
   Background:
     When the website is open in the browser
@@ -82,7 +82,7 @@ Feature: Products page Features
       | Price: High to Low |
       | Name: A to Z       |
 
-Feature: Product page Features
+Feature: Product details page
 
   Background:
     Given the web shop application is open in the browser
