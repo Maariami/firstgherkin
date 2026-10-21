@@ -1,19 +1,19 @@
-Feature: Login page Features
+Feature: Login/register page Features
 
   Background:
     Given the website is open in the browser
 
-  Scenario: User logs in successfully
-    Given user is on the login page
-    When user enters "mariam@gmail.com" and "password123"
-    And user clicks the login button
-    Then user should be redirected to the homepage
-
-  Scenario: User registers successfully
+ Scenario: User registers successfully
     Given user is on the register page
-    When user enters first name "mariam", last name "bidz", unique email and password "pass123"
+    When user enters first name, last name and the rest of the required information, unique email and password 
     And user clicks the register button
     Then user should be redirected to the login page
+
+  Scenario: User logs in successfully
+    Given user is on the login page
+    When user enters valid email and password
+    And user clicks the login button
+    Then user should be redirected to the account page
 
   Scenario Outline: User changes language successfully
     Given user is on the homepage
@@ -43,7 +43,7 @@ Feature: Profile page Features
     Then user should see the "Your profile is successfully updated!" message
     And the first name should be "Nini"
 
-Feature: Product Listing Page
+Feature: Products Listing Page
 
   Background:
     When the website is open in the browser
@@ -82,30 +82,37 @@ Feature: Product Listing Page
       | Price: High to Low |
       | Name: A to Z       |
 
-Feature: Product details page
+Feature: Add to favourites
 
   Background:
     Given the web shop application is open in the browser
     And user is logged in
-    And user is on a product page
+
+  Scenario: User adds products to favourites successfully
+    Given the user is on "Protective Gloves" details page
+    When user clicks on the add to favourites button
+    Then user should see the "product added to your favourites list" message
+    And the "<product>" should be added to the user's favourites list
+
+
+Feature: Add to cart and Check out 
+
+  Background:
+    Given the web shop application is open in the browser
+    And user is logged in
 
   Scenario: User adds products to cart successfully
-    Given the opened product is "Long Nose Pliers"
+    Given the user is on "Long Nose Pliers" details page
     When user chooses quantity "2"
     And user clicks on the add to cart button
     Then user should see the "Product added to cart" message
     And the cart should have "2" of "Long Nose Pliers"
 
-  Scenario: User adds products to favourites successfully
-    Given the opened product is "Protective Gloves"
-    When user clicks on the add to favourites button
-    Then user should see the "product added to your favourites list" message
-    And the "<product>" should be added to the user's favourites list
-
   Scenario: User checks out successfully
-    Given user has "Protective Gloves" in the cart
+    Given user has "Long Nose Pliers" in the cart
     And user is on the cart page
     When user proceeds through checkout with valid billing and payment information
     Then user should see the "Payment was successful" message
+    And the user should see the invoice number
 
 
