@@ -1,11 +1,13 @@
-const { expect } = require("chai");
+const { expect, assert } = require("chai");
+const chai = require("chai");
 const user = require('../data/user')
 const languages = require('../data/languages')
+chai.should()
 
 describe("login page features",()=>{
-beforeEach(async()=>{
-    await browser.url('/')
-});
+    beforeEach(async()=>{
+        await browser.url('/')
+    });
 
 
 it('User registers successfully',async()=>{
@@ -34,7 +36,7 @@ it('User registers successfully',async()=>{
 
 });
 
- it.only("User User changes language successfully", async()=>{
+ it("User logs in successfully", async()=>{
     await browser.url('/auth/login')
     await $('#email').setValue(user.email)
     await $('#password').setValue(user.password)
@@ -46,18 +48,21 @@ it('User registers successfully',async()=>{
     );
 
     const browserUrl=await browser.getUrl()
-    expect(browserUrl).to.contain('/account')
-    })
+   
+    assert.include(browserUrl, '/account');   
+ })
 
 languages.forEach((lang)=>{
-    it("User changes language successfully",async()=>{
-        await $('#language').selectByVisibleText(lang.option)
+    it(`User changes language to ${lang.language} successfully`,async()=>{
+        await $('#language').click();
+        await $(`[data-test="lang-${lang.option.toLowerCase()}"]`).click();       
         await browser.waitUntil(
         async () => (await $("html").getAttribute("lang")) === lang.option.toLowerCase(),
         { timeoutMsg: `lang attribute did not change to ${lang.option}` }
          );
-    
-        expect(await $("html").getAttribute("lang")).to.equal(lang.option.toLowerCase());
+         const webLang=await $("html").getAttribute("lang")
+        webLang.should.equal(lang.option.toLowerCase());
          })
+         
     })
 })

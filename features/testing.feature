@@ -37,7 +37,7 @@ Feature: Profile page Features
 
  Scenario: User changes profile information successfully
     Given user is on the profile page
-    And the user's first name is "Mariam"
+    And the user's first name is "Mariami"
     When user enters a new first name "Nini"
     And user clicks the update profile button
     Then user should see the "Your profile is successfully updated!" message
@@ -47,7 +47,6 @@ Feature: Products Listing Page
 
   Background:
     When the website is open in the browser
-    And user is logged in
     And user is on the products page
 
   Scenario: User sees product details successfully
@@ -69,7 +68,7 @@ Feature: Products Listing Page
     Examples:
       | category    | brand                | sustainability                  |
       | hand tools  | ForgeFlex Tools      | Show only eco-friendly products |
-      | power tools | MightyCraft Hardware | Show only eco-friendly products |
+      | power tools | MightyCraft Hardware |                                 |
 
   Scenario Outline: User sorts the products successfully
     Given user clicks on the sort by dropdown menu

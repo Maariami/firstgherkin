@@ -1,7 +1,7 @@
 module.exports ={  
     email: "mari@gmail.com",
     password:"Mariamivar888!!!",
-    firstName:"mariam",
+    firstName:"mariami",
     lasttName:"bidz",
     dob:"2002-01-01",
     country:"Georgia",
@@ -11,8 +11,4 @@ module.exports ={
     city:"tbilisi",
     state:"tbilisi",
     phone:"555604807",
-  
-
-
-
 }
