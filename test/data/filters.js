@@ -3,11 +3,15 @@ module.exports = [
     category: "Hand Tools",
     brand: "ForgeFlex Tools",
     sustainability: "Show only eco-friendly products",
-    expected: ["Wood Saw"],
+    expectedProductNames: ["Wood Saw"],
   },
   {
     category: "Power Tools",
-    brand: "MightyCraft Hardware",
-    expected: ["Belt Sander", "Cordless Drill 12V"],
+    brand: "ForgeFlex Tools",
+    expectedProductNames: [
+      "Sheet Sander",
+      "Circular Saw",
+      "Cordless Drill 24V",
+    ],
   },
 ];
